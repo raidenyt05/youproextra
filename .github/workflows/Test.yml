@@ -308,12 +308,12 @@ jobs:
           for f in *.deb; do
             [ -f "$f" ] && tweaks="$tweaks $f"
           done
-          cyan -i youtube.ipa -o YouProExtra_${{ env.YT_VERSION }}_${{ env.YOUPRO_VERSION }}.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
+          cyan -i youtube.ipa -o YouPro+YouMod_${{ env.YT_VERSION }}.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
 
       - name: Create a Draft Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: youproextra-ipa${{ github.run_number }}
+          tag_name: youpro+youmod-ipa${{ github.run_number }}
           name: YouPro+YouMod_${{ env.YT_VERSION }}_(${{ github.run_number }})
           files: YouPro+YouMod_${{ env.YT_VERSION }}.ipa
           draft: true
