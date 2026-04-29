@@ -1,4 +1,4 @@
-name: Build YouPro+YouMod IPA with iSponsorBlock
+name: Build YouProEXTRA IPA
 on:
   workflow_dispatch:
     inputs:
@@ -302,18 +302,18 @@ jobs:
           for f in *.deb; do
             [ -f "$f" ] && tweaks="$tweaks $f"
           done
-          cyan -i youtube.ipa -o YouPro+YouMod_${{ env.YT_VERSION }}.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
+          cyan -i youtube.ipa -o YouProEXTRA_${{ env.YT_VERSION }}.ipa -uwef $tweaks -n "${{ inputs.display_name }}" -b ${{ inputs.bundle_id }}
 
       - name: Create a Draft Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: youpro+youmod-ipa${{ github.run_number }}
-          name: YouPro+YouMod_${{ env.YT_VERSION }}_(${{ github.run_number }})
-          files: YouPro+YouMod_${{ env.YT_VERSION }}.ipa
+          name: YouProEXTRA_${{ env.YT_VERSION }}_(${{ github.run_number }})
+          files: YouProEXTRA_${{ env.YT_VERSION }}.ipa
           draft: true
 
       - name: Job Summary - Build Complete
-        run: echo -e '### 🛠️ Build YouPro+YouMod IPA Complete!' >> $GITHUB_STEP_SUMMARY
+        run: echo -e '### 🛠️ Build YouProEXTRA IPA Complete!' >> $GITHUB_STEP_SUMMARY
 
       - name: Job Summary - Output the Draft Release Link
         run: |
