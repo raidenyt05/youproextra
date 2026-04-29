@@ -138,38 +138,7 @@ jobs:
           cp libundirect/libundirect_dynamic.h $THEOS/include/libundirect/
           cp libundirect/libundirect.h $THEOS/include/libundirect/
           
-      - name: Cache Tweaks
-        id: cache_tweaks
-        uses: ./.github/actions/cache-tweaks
-        with:
-          sdk_version: '18.6'
-          isponsorblock: ${{ inputs.isponsorblock }}
-          demc: ${{ inputs.demc }}
-          ytvid: ${{ inputs.ytvid }}
-          theos_commit: ${{ steps.commit_hashes.outputs.theos }}
-          youpip_commit: ${{ steps.commit_hashes.outputs.youpip }}
-          ytuhd_commit: ${{ steps.commit_hashes.outputs.ytuhd }}
-          ryd_commit: ${{ steps.commit_hashes.outputs.ryd }}
-          ygs_commit: ${{ steps.commit_hashes.outputs.ygs }}
-          ytvo_commit: ${{ steps.commit_hashes.outputs.ytvo }}
-          ytabconfig_commit: ${{ steps.commit_hashes.outputs.ytabconfig }}
-          youquality_commit: ${{ steps.commit_hashes.outputs.youquality }}
-          youspeed_commit: ${{ steps.commit_hashes.outputs.youspeed }}
-          youmute_commit: ${{ steps.commit_hashes.outputs.youmute }}
-          youloop_commit: ${{ steps.commit_hashes.outputs.youloop }}
-          alderis_commit: ${{ steps.commit_hashes.outputs.alderis }}
-          youslider_commit: ${{ steps.commit_hashes.outputs.youslider }}
-          youchoose_commit: ${{ steps.commit_hashes.outputs.youchoose }}
-          ytsilentvote_commit: ${{ steps.commit_hashes.outputs.ytsilentvote }}
-          youshare_commit: ${{ steps.commit_hashes.outputs.youshare }}
-          gonerino_commit: ${{ steps.commit_hashes.outputs.gonerino }}
-          ytweaks_commit: ${{ steps.commit_hashes.outputs.ytweaks }}
-          yougetcaption_commit: ${{ steps.commit_hashes.outputs.yougetcaption }}
-          ytflags_commit: ${{ steps.commit_hashes.outputs.ytflags }}
-          iamyoutube_commit: ${{ steps.commit_hashes.outputs.iamyoutube }}
-          isponsorblock_commit: ${{ steps.commit_hashes.outputs.isponsorblock }}
-          demc_commit: ${{ steps.commit_hashes.outputs.demc }}
-          ytvid_commit: ${{ steps.commit_hashes.outputs.ytvid }}
+
 
       - name: Build YTVideoOverlay
         if: steps.cache_tweaks.outputs.cache_ytvo_hit != 'true'
