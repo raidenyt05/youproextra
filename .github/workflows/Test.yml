@@ -72,14 +72,11 @@ jobs:
           unzip -q youtube.ipa -d ytextracted
           echo "YT_VERSION=$(grep -A 1 '<key>CFBundleVersion</key>' ytextracted/Payload/YouTube.app/Info.plist | grep '<string>' | awk -F'[><]' '{print $3}')" >> $GITHUB_ENV
 
-
-
       - name: Install Dependencies
         run: brew install make ldid swiftlint dpkg
 
       - name: Set PATH Environment Variables
         run: echo "$(brew --prefix make)/libexec/gnubin" >> $GITHUB_PATH
-
 
       - name: Setup Theos
         uses: actions/checkout@v4
@@ -88,14 +85,19 @@ jobs:
           path: ${{ github.workspace }}/theos
           submodules: recursive
 
+      # IMPORTANT: ensure THEOS points to a writable directory in the runner.
+      # If THEOS is unset, "$THEOS/sdks" becomes "/sdks" which is read-only on GitHub runners.
+      - name: Export THEOS path
+        run: echo "THEOS=${{ github.workspace }}/theos" >> $GITHUB_ENV
+
       - name: Download iOS SDK
         run: |
           git clone --quiet --depth=1 https://github.com/theos/sdks.git
           cd sdks
           git sparse-checkout set --no-cone iPhoneOS16.5.sdk
           git checkout
-          mv *.sdk $THEOS/sdks
-
+          mkdir -p "$THEOS/sdks"
+          mv iPhoneOS16.5.sdk "$THEOS/sdks/"
 
       - name: Install cyan and tbd
         run: |
