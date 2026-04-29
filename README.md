@@ -1,7 +1,5 @@
 # YouProEXTRA
 
-Build script by [mrdrvt99](https://github.com/mrdrvt99)
-
 
 Based on the *FREE* YouPro tweak made by [Alibusut](https://t.me/alibusut)
 
@@ -28,3 +26,5 @@ Added extra features just like YTLitePlusEXTRA but for completely free
 [Alibusut](https://t.me/alibusut)
 
 [ipastar](https://t.me/ipastar)
+
+[mrdrvt99](https://github.com/mrdrvt99)
