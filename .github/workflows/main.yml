@@ -44,7 +44,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build YouPro+YouMod IPA with iSponsorBlock
+    name: Build YouProEXTRA IPA
     runs-on: macos-latest
     permissions:
       contents: write
