@@ -150,7 +150,7 @@ jobs:
 
       - name: Clone and Build YouPro
         run: |
-          git clone --quiet --depth=1 https://github.com/mrdrvt99/YouPro.git
+          git clone --quiet --depth=1 https://github.com/jaydenjcpy/YouPro.git
           cd YouPro
           echo "YOUPRO_VERSION=$(grep '^Version:' DEBIAN/control | awk '{print $2}')" >> $GITHUB_ENV
           chmod -R 755 .
